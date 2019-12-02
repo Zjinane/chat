@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // gets modules from node
 const http = require('http');
 const fs = require('fs');
@@ -28,3 +29,6 @@ io.sockets.on('connection', (socket) => {
 
 // always at the end (server listens on 9876)
 server.listen(9876);
+=======
+console.log('hello');
+>>>>>>> development
