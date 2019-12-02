@@ -1,18 +1,17 @@
 # Online Chat Web App using Node.js
-Collaborators :
-	- [Wail]()
-	- [Nicolas]()
-	- [Laly]()
-
 ## Motivation behind this?
 Group project part of BeCode training in Brussels. 4 days to do this. <br/>
+Collaborators :
+- [Wail](https://github.com/wailmadrane)
+- [Nicolas](https://github.com/Nico-becode)
+- [Laly](https://github.com/lalsdev)
 
 We have to build an online chat app using the following technologies : 
-	- Node.js
-	- install libraries via npm dependency manager
-	- librairies to use : 
-		- Express.js -> web application framework
-		- Socket.io -> library enabling real-time interactions between the client and the server side
+- Node.js
+- install libraries via npm dependency manager
+- librairies to use : 
+	- Express.js -> web application framework
+	- Socket.io -> library enabling real-time interactions between the client and the server side
 
 ## Mission
 - Write our server with Node.js and Express.js
@@ -26,21 +25,29 @@ If we finish this we can think of implementing the following :
  - Users can edit or delete their messages
  - Update user info : picture, pseudo, description
 
+## How we organized ourselves
+Day 1 :
+- Understand what is required to build the project
+- From the start we decide we will meet at the beginning and end of the day to discuss how we get on
+- We tried to team up in pairs to work on parts of the project
+	- Laly and Jinane working on learning how socket works to build the chat
+	- Nicolas and Wail on creating mockups and thinking UI, UX
 
-## Front-end tools:
+### Front-end tools:
 - Figma
 
 ## Overviews
 ### mobile
-![Mobile](/assets/img/mobilev.png)
+![Mobile]()
 
 ### desktop 
-![Larger](/assets/img/mediumv.png)
+![Larger]()
 
-## Back-end tools
-- Node.js
-- npm
-- Express.js
+### Back-end tools:
+- Dependency Manager : NPM
+- Librairies :
+	- Express.js
+	- Socket.io
 
 ## Progression
 
