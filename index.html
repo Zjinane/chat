@@ -7,11 +7,24 @@
  
     <body>
         <h1>Communication with socket.io!</h1>
+		<p><input type="button" name="" id="sock" value="Annoy the master sock" /></p>
 		<!--path to node module file socket -->
         <script src="/socket.io/socket.io.js"></script>       
 		<!-- connect to correct port-->
 	   <script>
             const socket = io.connect('http://localhost:9876');
+			//remembers pseudo when someone logs in localhost 9876
+			const  pseudo = prompt('Quel est votre pseudo ?');
+			socket.emit('newSockConnecting', pseudo); //sends to the client
+			//use method from socket library
+			socket.on('message', (message) => {
+			alert('Le serveur chaussette a un message pour vous: ' + message);
+			});
+			//when user clicks on element sock, message sent to server
+			document.getElementById('sock').addEventListener('click', () => {
+				socket.emit('message', 'Hello master socket, how are you?');
+				console.log('bien connecte');
+			});
         </script>
     </body>
 </html>
