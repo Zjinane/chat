@@ -13,7 +13,7 @@ const server = http.createServer((req,res) => {
 const io = require('socket.io').listen(server);
 //when client connect in socket, console log in server
 io.sockets.on('connection', (socket) => {
-	console.log('chaussette connectee');	
+	socket.emit('message', 'Vous etes bien connecté !');	
 });
 
 // always at the end (server listens on 9876)
