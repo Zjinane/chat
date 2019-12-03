@@ -7,7 +7,7 @@ const ent = require('ent');
 app.use(express.static('client')); //use CSS 
 
 app.get('/',(req, res) => {
-  res.sendFile(__dirname + '/client/index.html');
+  res.sendFile(__dirname + '/index.html');
 });
 
 
@@ -20,6 +20,7 @@ io.sockets.on('connection',(socket, pseudo) => {
 
     socket.on('message',(message) => {
         message = ent.encode(message);
+		console.log(message);
         socket.broadcast.emit('message', {pseudo: socket.pseudo, message: message});
     }); 
 });
