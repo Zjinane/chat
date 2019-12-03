@@ -1,11 +1,15 @@
-const app = require('express')();
+const express = require('express');
+const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io').listen(server);
 const ent = require('ent');
 
+app.use(express.static('client')); //use CSS 
+
 app.get('/',(req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/client/index.html');
 });
+
 
 io.sockets.on('connection',(socket, pseudo) => {
     socket.on('nouveau_client',(pseudo) => {

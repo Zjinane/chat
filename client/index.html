@@ -9,7 +9,7 @@
 </head>
 <body>
    <div class="wrapper chat-wrapper">
-      <div class="chat">
+      <div id="zone_chat" class="chat">
          <div class="chat__card">
             <div class="chat__avatar">
                <!-- avatar -->
@@ -31,13 +31,15 @@
             </div>
          </div>
       </div>
-      <form class="controller" action="">
+      <form class="controller" action="" id="formulaire_chat">
          <button class="btn" id="features">F</button><!--
       --><input type="text" name="" id="msg"><!--
-      --><button class="btn" id="send">Send</button>
+      --><button class="btn" id="send" type="submit">Send</button>
       </form>
    </div>
 
+    <script src="../socket.io/socket.io.js"></script>
+   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
    <script src="js/main.js"></script>
 </body>
 </html>
