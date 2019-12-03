@@ -1,62 +1,59 @@
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Chat</title>
-    </head>
- 
+        <title>Chat  !</title>
+       </head>
+
     <body>
-        <h1>Communication with socket.io!</h1>
-		<form action="" method="" id="chatform" accept-charset="utf-8">
-			<input type="text" id="message" name="message"  placeholder="type your message here" />
-			<input id="send" type="submit" value="Send">
-		</form>
+        <h1> Chat  !</h1>
 
-		<section id='chatzone'></section>
-		<!--path to node module file socket -->
+        <form action="/" method="post" id="formulaire_chat">
+            <input type="text" name="message" id="message" placeholder="Votre message..." size="50" autofocus />
+            <input type="submit" id="envoi_message" value="Envoyer" />
+        </form>
+
+        <section id="zone_chat">
+
+        </section>
+
+
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
-		<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-		<!-- connect to correct port-->
-	   <script>
+        <script>
+
+            // Connexion à socket.io
             const socket = io.connect('http://localhost:9876');
-			//remembers pseudo when someone logs in localhost 9876
-			const  pseudo = prompt('What is your username ?', 'Anonymous');
-			socket.emit('newSockConnecting', pseudo); //sends to the client
-			//shows with user is talking
-			document.title = pseudo + ' - ' + document.title;
-			
-			//when receive a message insert into page 
-			socket.on('message', (data) => {
-			//use function defined below
-				insertMessage(data.pseudo, data.message);
-			//document.getElementById('reponse').innerHTML =' The master socket has a message for you : ' + message;
-			});
-			
-			//new user connects
-			socket.on('newSockConnecting', (pseudo) => {
-				document.getElementById('chatzone').innerHTML = 'Sock ' + pseudo + ' joined the chat';
-			});
 
-			//when user clicks on element sock, message sent to server
-			document.getElementById('send').addEventListener('submit', () => {
-				const message = document.getElementById('message').value;
-				socket.emit('message', message); //send msg all users
-				insertMessage(pseudo, message); // affiche msg
-				document.getElementById('message').innerHTML.focus() = ''; //set var msg to 0
-				return false;
-//socket.on('message', (message) => {
-				//	document.getElementById('reponseinput').innerHTML = input;
-			//});
+            // On demande le pseudo, on l'envoie au serveur et on l'affiche dans le titre
+            let pseudo = prompt('Quel est votre pseudo ?');
+            socket.emit('nouveau_client', pseudo);
+            document.title = pseudo + ' - ' + document.title;
 
-				//socket.emit('message', 'Hello master socket, how are you?');
-			
-			});
+            // Quand on reçoit un message, on l'insère dans la page
+            socket.on('message', (data) => {
+                inseretMessage(data.pseudo, data.message)
+            })
 
-			//add msg into page
-			function insertMessage(pseudo, message){
-				document.getElementById('chatzone').innerHTML = 'Sock ' + pseudo + ': ' + message;
-			}
-        
-		</script>
+            // Quand un nouveau client se connecte, on affiche l'information
+            socket.on('nouveau_client', (pseudo) => {
+                $('#zone_chat').prepend('<p><em> Hey la chaussette ' + pseudo + ' a rejoint le Chat !</em></p>');
+            })
+
+            // Lorsqu'on envoie le formulaire, on transmet le message et on l'affiche sur la page
+            $('#formulaire_chat').submit(() => {
+                let message = $('#message').val();
+                socket.emit('message', message); // Transmet le message aux autres
+                insereMessage(pseudo, message); // Affiche le message aussi sur notre page
+                $('#message').val('').focus(); // Vide la zone de Chat et remet le focus dessus
+                return false; // Permet de bloquer l'envoi "classique" du formulaire
+            });
+
+            // Ajoute un message dans la page
+            function inseretMessage(pseudo, message) {
+                $('#zone_chat').prepend('<p><strong>' + pseudo + '</strong> ' + message + '</p>');
+            }
+        </script>
     </body>
 </html>
