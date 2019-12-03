@@ -4,7 +4,7 @@ const app = express();
 // connect and create server
 const server = require('http').createServer(app);
 const fs = require('fs');
-const sessionSockets = require('session.socket.io');
+//const sessionSockets = require('session.socket.io');
 //connexion server
 //const server = http.createServer((req,res) => {
 //	fs.readFile('./index.html', 'utf-8', (error, content) => {
@@ -19,7 +19,7 @@ const ent = require('ent');
 // load index page
 
 app.get('/',(req, res)=>{
-	res.sendfile(__dirname + '/index.html');
+	res.sendFile(__dirname + '/index.html');
 });
 
 //when client connect in socket, console log in server
