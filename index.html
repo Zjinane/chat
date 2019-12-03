@@ -9,7 +9,7 @@
     <body>
         <h1> Chat  !</h1>
 
-        <form action="/" method="post" id="formulaire_chat">
+        <form id="formulaire_chat">
             <input type="text" name="message" id="message" placeholder="Votre message..." size="50" autofocus />
             <input type="submit" id="envoi_message" value="Envoyer" />
         </form>
@@ -45,13 +45,13 @@
             $('#formulaire_chat').submit(() => {
                 let message = $('#message').val();
                 socket.emit('message', message); // Transmet le message aux autres
-                insereMessage(pseudo, message); // Affiche le message aussi sur notre page
+                insertMessage(pseudo, message); // Affiche le message aussi sur notre page
                 $('#message').val('').focus(); // Vide la zone de Chat et remet le focus dessus
                 return false; // Permet de bloquer l'envoi "classique" du formulaire
             });
 
             // Ajoute un message dans la page
-            function inseretMessage(pseudo, message) {
+            function insertMessage(pseudo, message) {
                 $('#zone_chat').prepend('<p><strong>' + pseudo + '</strong> ' + message + '</p>');
             }
         </script>
