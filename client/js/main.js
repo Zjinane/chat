@@ -3,7 +3,7 @@
  const socket = io.connect('http://localhost:9876');
 
  // On demande le pseudo, on l'envoie au serveur et on l'affiche dans le titre
- let pseudo = prompt('Quel est votre pseudo ?');
+ let pseudo = prompt('What is your username ?','Anonymous Sock');
 socket.emit('nouveau_client', pseudo);
  document.title = pseudo + ' - ' + document.title;
 
@@ -15,7 +15,7 @@ socket.emit('nouveau_client', pseudo);
 
  // Quand un nouveau client se connecte, on affiche l'information
  socket.on('nouveau_client', (pseudo) => {
-     $('#zone_chat').prepend('<p><em> Hey la chaussette ' + pseudo + ' a rejoint le Chat !</em></p>');
+     $('#zone_chat').prepend('<p><em> Hey Sock ' + pseudo + ' has joined the chat !</em></p>');
  })
 
 // Lorsqu'on envoie le formulaire, on transmet le message et on l'affiche sur la page
