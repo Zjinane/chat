@@ -7,6 +7,7 @@
 socket.emit('nouveau_client', pseudo);
  document.title = pseudo + ' - ' + document.title;
 
+
  // Quand on reçoit un message, on l'insère dans la page
  socket.on('message', (data) => {
 	 insertMessage(data.pseudo, data.message)

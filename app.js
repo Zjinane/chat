@@ -5,29 +5,37 @@ const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io').listen(server);
 const ent = require('ent');
-let ssn ;
 
-app.use(cookieParser());
+// A TRAVAILLER
+
+
+//app.use(cookieParser());
 
 app.use(session({secret:'secret', 'resave': false ,'saveUninitialized': true }));// utilise la session 
 
 app.use(express.static('client')); //use CSS 
 
+// set what happens when on root
+app.get('/',(req, res) => {	
+	res.sendFile(__dirname + '/index.html');
+		io.socket.on('connection', (socket, pseudo) => {
+			socket.on('nouveau_client', (pseudo) => {
+				pseudo = ent.encode(pseudo);
+				socket.pseudo = pseudo;
+				req.session.pseudo;
+				console.log(req.session.pseudo);
+				});
+			});
+		});
 
+// A TRAVAILLER
 
-app.get('/',(req, res) => {
-	ssn = req.session;// require la session dans la variable ssn
-	if(ssn.pseudo){ // active la session avec le pseudo et redirige vers index.html
-		res.sendFile(__dirname + '/index.html');
-	}
-});
-
-
+// faire connexion a socket
 io.sockets.on('connection',(socket, pseudo) => {
-    socket.on('nouveau_client',(pseudo) => {
-        pseudo = ent.encode(pseudo);
+    socket.on('nouveau_client',(pseudo) => {//cree nouveau pseudo
+		pseudo = ent.encode(pseudo);
         socket.pseudo = pseudo;
-        socket.broadcast.emit('nouveau_client', pseudo);
+		socket.broadcast.emit('nouveau_client', pseudo); //envoie aux autre clients
     });
 
     socket.on('message',(message) => {
