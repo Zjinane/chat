@@ -25,7 +25,7 @@ If we finish this we can think of implementing the following :
  - Users can edit or delete their messages
  - Update user info : picture, pseudo, description
 
-## How we organized ourselves
+## How we organize ourselves
 Day 1 :
 - From the start we decide we will meet at the beginning and end of the day to discuss how we get on
 - Set up a project on Github for everyone to have a space to leave notes about the project advancement
@@ -33,9 +33,17 @@ Day 1 :
 - We team up in pairs to work on parts of the project
 	- Laly and Jinane working on learning how socket works to build the chat
 	- Nicolas and Wail on creating mockups and thinking UI, UX
+Day 2 :
+- Nico : working on finding a way to implement a markDown feature in the Chat
+- Jinane and Laly : working on following a tutorial to implement chat
+- Wail : working on the mockup + html and css
+- Everyone : merging front and back branch and merge into development branch
+
+Day 3 :
+- Nico, Jinane and Laly working on the back-end, adding session system
 
 ### Front-end tools:
-- Figma
+- Mockup tool : Figma
 
 ## Overviews
 ### mobile
@@ -51,6 +59,7 @@ Day 1 :
 	- Socket.io
 
 ## Progression
+![](https://media.giphy.com/media/13wSCgdJ354G3e/giphy.gif)
 
 ## Credits
 December 2019 <br>
