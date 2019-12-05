@@ -1,6 +1,6 @@
-
+console.log('hello');
  // Connexion à socket.io
- const socket = io.connect(process.env.PORT || 3000 );
+ const socket = io.connect(3000 );
 
  // On demande le pseudo, on l'envoie au serveur et on l'affiche dans le titre
  let pseudo = prompt('What is your username ?','Anonymous Sock');
