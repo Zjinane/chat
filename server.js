@@ -49,7 +49,7 @@ io.sockets.on('connection',(socket, pseudo) => {
 		//envoie aux autre clients
 		
 	});
-});
+
 
 
     socket.on('message',(message) => {
@@ -61,9 +61,8 @@ io.sockets.on('connection',(socket, pseudo) => {
 //insert in database
 //db.insert({ pseudo: 'nouveau_client', message: 'message'});
 
-
+});
 // perform actions on the collection object
-  client.close();
 
 
 
