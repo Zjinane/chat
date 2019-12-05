@@ -29,5 +29,5 @@ socket.emit('nouveau_client', pseudo);
 
 // Ajoute un message dans la page
  function insertMessage(pseudo, message) {
-                $('#zone_chat').prepend('<p><strong>' + pseudo + '</strong> ' + message + '</p>');
+                $('#zone_chat').prepend('<div class="chat__card"><div class="chat__avatar">' + pseudo + '</div><div class="chat__message"> ' + message + '</div></div>');
             }
