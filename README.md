@@ -6,6 +6,8 @@ Collaborators :
 - [Nicolas](https://github.com/Nico-becode)
 - [Laly](https://github.com/lalsdev)
 
+You can see the project here [here](https://chatwalaniji.herokuapp.com/)
+
 We have to build an online chat app using the following technologies : 
 - Node.js
 - install libraries via npm dependency manager
@@ -37,28 +39,37 @@ Day 2 :
 - Nico : working on finding a way to implement a markDown feature in the Chat
 - Jinane and Laly : working on following a tutorial to implement chat
 - Wail : working on the mockup + html and css
-- Everyone : merging front and back branch and merge into development branch
+- Collective contribution : merging front and back branch and merge into development branch
 
 Day 3 :
-- Nico, Jinane and Laly working on the back-end, adding session system
+- Collective contribution :  working on the back-end, adding session system
+
+Day 4:
+- Didn't use sessions instead used a database
+- Deployment
+- Adding Background to project
+- Integrate messages with Front
+
+### Mock-ups
+// To be integrated
 
 ### Front-end tools:
 - Mockup tool : Figma
+- Background image : Canva
 
-## Overviews
-### mobile
-![Mobile]()
-
-### desktop 
-![Larger]()
+## Overview desktop 
+![Larger](client/img/overview.png)
 
 ### Back-end tools:
 - Dependency Manager : NPM
 - Librairies :
 	- Express.js
 	- Socket.io
+- Deployment : Heroku
 
 ## Progression
+[X] : add database to keep messages when reloading the page
+
 ![](https://media.giphy.com/media/13wSCgdJ354G3e/giphy.gif)
 
 ## Credits
