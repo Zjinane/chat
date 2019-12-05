@@ -1,0 +1,32 @@
+/* ### global ###"*/
+
+* {
+   box-sizing: border-box;
+}
+
+body {
+   font-family: $open_sans;
+   color: $font_color;
+}
+
+h1, h2, h3 {
+   font-weight: inherit;
+}
+
+a {
+   text-decoration: none;
+}
+
+figure {
+   margin: 0;
+}
+
+button {
+   background: none;
+   border: none;
+   cursor: pointer;
+}
+
+button, a{
+   color: inherit;
+}
