@@ -1,6 +1,6 @@
 
  // Connexion à socket.io
- const socket = io.connect('http://localhost:9876');
+ const socket = io.connect('https://chatjiniwala.herokuapp.com');
 
  // On demande le pseudo, on l'envoie au serveur et on l'affiche dans le titre
  let pseudo = prompt('Quel est votre pseudo ?', 'Sock');
