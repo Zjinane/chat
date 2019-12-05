@@ -3,7 +3,10 @@
  const socket = io.connect('http://localhost:9876');
 
  // On demande le pseudo, on l'envoie au serveur et on l'affiche dans le titre
- let pseudo = prompt('Quel est votre pseudo ?');
+ let pseudo = prompt('Quel est votre pseudo ?', 'Sock');
+if (!pseudo){
+	pseudo = 'Sock';
+}
 socket.emit('nouveau_client', pseudo);
  document.title = pseudo + ' - ' + document.title;
 
