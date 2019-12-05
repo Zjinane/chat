@@ -3,7 +3,8 @@ const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io').listen(server);
 const ent = require('ent');
-
+const PORT = process.env.PORT || 3000;
+const INDEX = '/index.html';
 //appel module
 //const MongoClient = require('mongodb').MongoClient;
 //url bdd
@@ -17,7 +18,7 @@ app.use(express.static('client')); //use CSS
 
 // set what happens when on root
 app.get('/',(req, res) => {
-	res.sendFile(__dirname + 'index.html');
+	res.sendFile(INDEX, { root: __dirname })
 	});
 
 
@@ -67,4 +68,4 @@ io.sockets.on('connection',(socket, pseudo) => {
 
 
 
-server.listen(process.env.PORT || 8080 );
+server.listen(PORT);
