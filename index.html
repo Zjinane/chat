@@ -10,73 +10,18 @@
 <body>
    <div class="wrapper chat-wrapper">
       <div id="zone_chat" class="chat">
-         <div class="chat__card">
-            <div class="chat__avatar">
-               <!-- avatar -->
-               Waïl
-            </div>
-            <div class="chat__message">
-               <!-- message -->
-               This is the last random sentence I will be writing and I am going to stop mid-sent
-            </div>
-         </div>
-         <div class="chat__card">
-            <div class="chat__avatar">
-               <!-- avatar -->
-               Waïl
-            </div>
-            <div class="chat__message">
-               <!-- message -->
-               This is the last random sentence I will be writing and I am going to stop mid-sent
-            </div>
-         </div>
       </div>
-      <form method="GET" class="controller" action="" id="formulaire_chat">
+	  
+	  <form class="controller" action="" id="formulaire_chat">
          <button class="btn" id="features">F</button><!--
       --><input type="text" name="" id="msg"><!--
       --><button class="btn" id="send" type="submit">Send</button>
       </form>
-   </div>
+  
+  </div>
 
     <script src="/socket.io/socket.io.js"></script>
    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
    <script src="js/main.js"></script>
-<script type="text/javascript" charset="utf-8">
- // Connexion à socket.io
- const socket = io.connect(3000);
-
- // On demande le pseudo, on l'envoie au serveur et on l'affiche dans le titre
- let pseudo = prompt('What is your username ?','Anonymous Sock');
-socket.emit('nouveau_client', pseudo);
- document.title = pseudo + ' - ' + document.title;
-
-
- // Quand on reçoit un message, on l'insère dans la page
- socket.on('message', (data) => {
-	 insertMessage(data.pseudo, data.message)
-	console.log(data);
-})
-
- // Quand un nouveau client se connecte, on affiche l'information
- socket.on('nouveau_client', (pseudo) => {
-     $('#zone_chat').prepend('<p><em> Hey Sock ' + pseudo + ' has joined the chat !</em></p>');
- })
-
-// Lorsqu'on envoie le formulaire, on transmet le message et on l'affiche sur la page
- $('#formulaire_chat').submit(() => {
-     const message = $('#msg').val();
-     socket.emit('message', message); // Transmet le message aux autres
-     insertMessage(pseudo, message); // Affiche le message aussi sur notre page
-     $('#msg').val('').focus(); // Vide la zone de Chat et remet le focus dessus
-     return false; // Permet de bloquer l'envoi "classique" du formulaire
-	 });
-
-// Ajoute un message dans la page
- function insertMessage(pseudo, message) {
-                $('#zone_chat').prepend('<p><strong>' + pseudo + '</strong> ' + message + '</p>');
-            }
-</script>
-
-
 </body>
 </html>
