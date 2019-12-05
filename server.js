@@ -5,11 +5,11 @@ const io = require('socket.io').listen(server);
 const ent = require('ent');
 
 //appel module
-const MongoClient = require('mongodb').MongoClient;
+//const MongoClient = require('mongodb').MongoClient;
 //url bdd
-const uri = "mongodb+srv://root:rootroot@nodejs-nv5dk.mongodb.net/test?retryWrites=true&w=majority";
+//const uri = "mongodb+srv://root:rootroot@nodejs-nv5dk.mongodb.net/test?retryWrites=true&w=majority";
 //accept connexion bdd every client
-const client = new MongoClient(uri, { useNewUrlParser: true });
+//const client = new MongoClient(uri, { useNewUrlParser: true });
 
 
 
@@ -17,20 +17,21 @@ app.use(express.static('client')); //use CSS
 
 // set what happens when on root
 app.get('/',(req, res) => {
-	res.sendFile(__dirname + '/index.html');
-		});
+	res.sendFile(__dirname + 'index.html');
+	});
 
 
 
 // bdd = test/ collection = acces all bdd
-client.connect(err => {
-	const db = client.db("test").collection("chats");
+//client.connect(err => {
+//	const db = client.db("test").collection("chats");
 
-console.log(' okkkkkk conected in db ');
+//console.log(' okkkkkk conected in db ');
 
+//});
 // faire connexion a socket
 io.sockets.on('connection',(socket, pseudo) => {
-	db.find().limit(100).sort({_id:1}).toArray(// get data from db
+/*	db.find().limit(100).sort({_id:1}).toArray(// get data from db
 	(err, res) =>{
 		if(err){
 			throw err;
@@ -38,7 +39,7 @@ io.sockets.on('connection',(socket, pseudo) => {
 		}
 		socket.emit('output',res);
 	});
-
+*/
 
 	socket.on('nouveau_client',(pseudo) => {//cree nouveau pseudo
 		pseudo = ent.encode(pseudo);
@@ -47,7 +48,7 @@ io.sockets.on('connection',(socket, pseudo) => {
 		//envoie aux autre clients
 		
 	});
-
+});
 
 
     socket.on('message',(message) => {
@@ -57,14 +58,13 @@ io.sockets.on('connection',(socket, pseudo) => {
 	}); 
 
 //insert in database
-db.insert({ pseudo: 'nouveau_client', message: 'message'});
+//db.insert({ pseudo: 'nouveau_client', message: 'message'});
 
 
 // perform actions on the collection object
   client.close();
-});
-
-});
 
 
-server.listen(9876);
+
+
+server.listen(process.env.PORT || 8080 );
