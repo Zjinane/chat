@@ -1,12 +1,12 @@
 # Online Chat Web App using Node.js
+You can see the project here [here](https://chatwalaniji.herokuapp.com/)
+
 ## Motivation behind this?
 Group project part of BeCode training in Brussels. 4 days to do this. <br/>
 Collaborators :
 - [Wail](https://github.com/wailmadrane)
 - [Nicolas](https://github.com/Nico-becode)
 - [Laly](https://github.com/lalsdev)
-
-You can see the project here [here](https://chatwalaniji.herokuapp.com/)
 
 We have to build an online chat app using the following technologies : 
 - Node.js
@@ -50,8 +50,12 @@ Day 4:
 - Adding Background to project
 - Integrate messages with Front
 
-### Mock-ups
-// To be integrated
+## Mock-ups
+### Mobile
+![Mobile](client/img/mobile.svg)
+### Desktop
+![Desktop](client/img/desktop.svg)
+
 
 ### Front-end tools:
 - Mockup tool : Figma
@@ -68,7 +72,8 @@ Day 4:
 - Deployment : Heroku
 
 ## Progression
-[X] : add database to keep messages when reloading the page
+- add database to keep messages when reloading the page
+- add features
 
 ![](https://media.giphy.com/media/13wSCgdJ354G3e/giphy.gif)
 
